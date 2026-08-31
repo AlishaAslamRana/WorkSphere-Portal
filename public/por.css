@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+  }
+  
+  /* --- Header & Horizontal Navbar --- */
+  .header {
+    background-color: #ffffff;
+    color: #0284c7;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border: 1px solid #009bf2;
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+  
+  .heading {
+    font-size: xx-large;
+    font-weight: bolder;
+    
+  }
+  .user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Button without border */
+.user-btn {
+    background-color: azure;
+    border: 1px solid #009bf2;
+    border-radius: 55%;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-user {
+    color: #0284c7;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 8px;
+    background-color: #291192;
+    min-width: 170px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #0045a0;
+    overflow: hidden;
+    z-index: 100;
+}
+.dropdown-item {
+    display: block;
+    padding: 0.65rem 1rem;
+    color: #009bf2;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.logout-link {
+    border-top: 1px solid #1d3e68;
+}
+/*  SideBar */
+
+/* --- Sidebar Main Styling --- */
+/* --- Sidebar Main Container --- */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #38bdf8; /* Light Sky Blue Background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 80px; /* Header space */
+  z-index: 900;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* --- Sidebar Links --- */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.85rem 1.5rem;
+  color: #ffffff; /* Text Color White */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Active Menu Item */
+.sidebar-item.active {
+  background-color: #0284c7; /* Slightly darker blue for active tab */
+  border-left: 4px solid #ffffff;
+  color: #ffffff;
+}
+
+/* Icons Styling */
+.sidebar-icon {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+  color: #ffffff; /* Icon Color White */
+}
+
+/* Logout Option Spacing */
+.logout-item {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}

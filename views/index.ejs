@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkSphere</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/108cce8cb8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo-box">
+          <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpXLVWQ8a5pITlP4sEwQNW5svXY73NFl-xWNkHK8PKvgzeeNDMLLoc88Y&s=10" alt="WorkSphere">
+          <h1 class="heading">WorkSphere</h1>
+        </div>
+        <div class="menu-box">
+          <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="btn-box">
+          <button class="logbtn" onclick="openModal('loginModal')">Log In</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <h1 class="hero-title">Welcome to WorkSphere</h1>
+        <p class="hero-text">Streamline your operations, track real-time analytics, and manage workflows seamlessly in one intuitive portal.</p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-content">
+          <h1 class="section-title">About WorkSphere</h1>
+          <p class="about-text">WorkSphere is a unified operational hub designed to bridge the gap between team collaboration, real-time analytics, and order tracking. Built on modern web technologies, our portal provides an intuitive, high-performance interface that empowers users to monitor key metrics, process data seamlessly, and manage workflows with complete precision and security.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMDT4J5m3GQqWtJRh2DPDtLrtXiFmxHZazhRZZO-GNUg&s=10" alt="WorkSphere">
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+      <div class="reviews-header">
+        <h2 class="section-title">Client Feedback</h2>
+        <p class="section-subtitle">See what our amazing clients have to say about working with WorkSphere</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <img class="client-img" src="https://img.magnific.com/free-photo/proud-you-did-great-portrait-happy-impressed-attractive-supportive-armenian-girl-wearing-orange-tshirt-show-thumbsup-approval-agree-gesture-liking-awesome-prom-outfit-friend-bought-smiling_176420-56070.jpg?semt=ais_hybrid&w=740&q=80" alt="Sara Malik">
+          <p class="review-text">"WorkSphere has completely streamlined our daily operations."</p>
+          <h4 class="client-name">Sara Malik</h4>
+        </div>
+
+        <div class="review-card">
+          <img class="client-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBereOOs6jTzJcHjsepXf2PWz0RLRuTkchrW1__qEJLbf2ZoaGw_kiKXOw&s=10" alt="John Alver">
+          <p class="review-text">"The visual analytics and instant metric updates give us total clarity on our workflow."</p>
+          <h4 class="client-name">John Alver</h4>
+        </div>
+
+        <div class="review-card">
+          <img class="client-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq5DfZLqvS7svCePVphqKur1noNqr9KcS9Aini3GCjJF2i7NEfdHYVbzA&s=10" alt="Jeena Carlis">
+          <p class="review-text">"Great experience working with them. Fast, reliable, and smooth communication."</p>
+          <h4 class="client-name">Jeena Carlis</h4>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h4 class="footer-title">WorkSphere</h4>
+        <p class="footer-desc">Empowering modern workflows with seamless analytics, secure access, and intelligent operational control.</p>
+      </div>
+
+      <div class="social-links">
+        <ul>
+          <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 WorkSphere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Log In Modal -->
+  <div class="form-container" id="loginModal">
+    <div class="form-card">
+      <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+      <h1 class="form-title">Log In</h1>
+      <form class="form" action="/login" method="POST">
+        <div class="form-group">
+          <label class="form-label">UserName</label>
+          <input class="form-input" type="text" name="username" placeholder="Enter Username" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" name="email" placeholder="Enter Your Email" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input class="form-input" type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="submit-wrapper">
+          <button type="submit" class="btn-submit">Submit</button> 
+        </div>
+      </form>
+      <div class="sb">
+        <button class="logbtn" type="button" onclick="switchModal('loginModal', 'signupModal')">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div class="form-container" id="signupModal">
+    <div class="form-card">
+      <span class="close-btn" onclick="closeModal('signupModal')">&times;</span>
+      <h1 class="form-title">Sign Up</h1>
+      <form class="form" action="/signup" method="POST" onsubmit="return validateSignUp(event)">
+        <div class="form-group">
+          <label class="form-label">UserName</label>
+          <input type="text" name="username" class="form-input" placeholder="Enter Username" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-input" placeholder="Enter Your Email" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input id="signupPass" type="password" name="password" class="form-input" placeholder="Password" oninput="checkPassword()" >
+          <div id="passwordError" class="error-msg" style="color:red;"></div>
+
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Confirm Password</label>
+          <input id="confirmPass" type="password" name="confirm_password" class="form-input" placeholder="Password"  oninput="checkConfirmPass()"  >
+          <div id="confirmPassError" class="error-msg" style="color:red;"></div>
+        </div>
+
+        <div class="submit-wrapper">
+          <button type="submit" class="btn-submit">Submit</button>
+        </div>
+      </form>
+      <div class="sb">
+        <button type="button" class="logbtn" onclick="switchModal('signupModal', 'loginModal')">Log In</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client-side script link -->
+  <script src="/javascripts/script.js"></script>
+</body>
+</html>
