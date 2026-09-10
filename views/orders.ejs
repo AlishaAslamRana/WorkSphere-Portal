@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders- WorkSphere</title>
+    <link rel="stylesheet" href="pagelayout.css">
+    <script src="https://kit.fontawesome.com/108cce8cb8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <br>
+    <%- include('partials/sidebar') %>
+    <main class="main-content">
+        <h2 class="page-title">Orders Management</h2>
+        <!-- Search Bar Section -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by Order ID, Name, Email or Status...">
+            <i class="fa-solid fa-magnifying-glass search-icon" onclick="performSearch()"></i>
+        </div>
+        <!-- Data Table -->
+         <div class="table-card">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                    <% orders.forEach(order => { %>
+                    <tr>
+                        <td><%= order.id %></td>
+                        <td><%= order.name %></td>
+                        <td><%= order.email %></td>
+                        <td>$<%= order.price %></td>
+                        <td><span class="badge"><%= order.status %></span></td>
+                        <td class="action-buttons">
+                            <button type="button" class="btn-action btn-view" title="View" 
+                                data-id="<%= order.id %>" 
+                                data-name="<%= order.name %>" 
+                                data-email="<%= order.email %>" 
+                                data-price="<%= order.price %>"
+                                data-status="<%= order.status %>"
+                                onclick="openViewModal(this)">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                            <button type="button" class="btn-action btn-edit" title="Edit" 
+                                data-id="<%= order.id %>" 
+                                data-name="<%= order.name %>" 
+                                data-email="<%= order.email %>" 
+                                data-price="<%= order.price %>"
+                                data-status="<%= order.status %>"
+                                onclick="openEditModal(this)">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button type="button" class="btn-action btn-delete" title="Delete" 
+                                data-id="<%= order.id %>" 
+                                data-name="<%= order.name %>"
+                                onclick="openDeleteModal(this)">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                        
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+         </div>
+    </main>
+    <div id="viewModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>View Order Details</h3>
+                <span class="close-btn" onclick="closeModal('viewModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Order ID:</strong> <span id="viewId"></span></p>
+                <p><strong>Name:</strong> <span id="viewName"></span></p>
+                <p><strong>Email:</strong> <span id="viewEmail"></span></p>
+                <p><strong>Total Price:</strong> $<span id="viewPrice"></span></p>
+                <p><strong>Status:</strong> <span id="viewStatus"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('viewModal')">Close</button>
+            </div>
+        </div>
+    </div>
+    
+  <!-- EDIT MODAL -->
+<div id="editModal" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3>Edit Order Info</h3>
+            <span class="close-btn" onclick="closeModal('editModal')">&times;</span>
+        </div>
+        <!-- Form Tag -->
+        <form id="editForm" onsubmit="return false;">
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+                <div class="form-group">
+                    <label>Customer Name</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="editEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Total Price ($)</label>
+                    <input type="text" id="editPrice" required>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="editStatus">
+                        <option value="Pending">Pending</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeModal('editModal')">Cancel</button>
+                <!-- Direct Onclick Handler -->
+                <button type="button" class="btn-primary" onclick="saveOrderChanges()">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+    
+    <!-- DELETE MODAL -->
+    <div id="deleteModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 style="color: #ef4444;">Delete Confirmation</h3>
+                <span class="close-btn" onclick="closeModal('deleteModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete order for <strong id="deleteName"></strong> (<span id="deleteId"></span>)?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('deleteModal')">Cancel</button>
+                <button class="btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/pagelayout.js"></script>
+</body>
+</html>

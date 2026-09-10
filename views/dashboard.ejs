@@ -3,16 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="por.css">
+    <title>Dashboard- WorkSphere</title>
+    <link rel="stylesheet" href="pagelayout.css">
     <script src="https://kit.fontawesome.com/108cce8cb8.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <%- include('partials/navbar') %>
     <br>
     <%- include('partials/sidebar') %>
-    <main>
-        
+    <main class="dashboard-container">
+      <h2 class="page-title">Dashboard</h2> 
+      <div class="charts-wrapper">
+      <!-- Doughnut Chart Card -->
+      <div class="chart-card">
+        <h3>Donut Chart</h3>
+        <div class="chart-box">
+            <canvas id="donutChart"></canvas>
+        </div>
+      </div>
+      <!-- Pie Chart Card -->
+      <div class="chart-card">
+        <h3>Pie Chart</h3>
+        <div class="chart-box">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+
+    </div> 
     </main>
+    
+    <script src="/javascripts/pagelayout.js"></script>
 </body>
 </html>
